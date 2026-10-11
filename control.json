@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "stateStorage": "control",
+  "id": "greeting-20261011-120943-retry",
+  "branch": "codex/shurik/greeting-20261011-120943-retry",
+  "defaultBranch": "main",
+  "supervisor": "ff7488806b221b3c8af26e6384d514cbdd03ebe6",
+  "status": "running",
+  "generation": 1,
+  "next": 1,
+  "engine": {
+    "repository": "igor-makarov/shurik",
+    "ref": "v1"
+  },
+  "workflow": "shurik.yml",
+  "layoutVersion": 1,
+  "prompt": "PROMPT.md",
+  "owner": null,
+  "deadline": "2026-10-11T12:22:21Z",
+  "seconds": 120,
+  "model": "space-bunny-free",
+  "reasoning": "high",
+  "source": "504af8a38716ca8d101df666a79ac03ba864a4f9",
+  "sourceRef": null,
+  "createdAt": "2026-10-11T12:15:02.848Z",
+  "lastDispatchAt": null,
+  "checkpoint": {
+    "workCommit": "504af8a38716ca8d101df666a79ac03ba864a4f9",
+    "generation": 1,
+    "sequence": "initialize",
+    "runId": null,
+    "at": "2026-10-11T12:15:02.876Z"
+  }
+}
