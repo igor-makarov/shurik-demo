@@ -5,13 +5,13 @@ uses only Node's standard library.
 
 ## Import
 
-```js
-import { greet } from './greet.mjs';
+```ts
+import { greet } from './greet.ts';
 ```
 
 ## Signature
 
-```js
+```ts
 greet(name = 'world', locale = 'en');
 ```
 
@@ -34,27 +34,27 @@ back to English, so existing callers that pass only `name` keep working.
 
 Default English greeting:
 
-```js
+```ts
 greet();            // 'Hello, world!'
 greet('Shurik');    // 'Hello, Shurik!'
 ```
 
 Explicit English locale:
 
-```js
+```ts
 greet('Shurik', 'en'); // 'Hello, Shurik!'
 ```
 
 Spanish locale:
 
-```js
+```ts
 greet('Shurik', 'es'); // '¡Hola, Shurik!'
 greet('Mundo', 'es');  // '¡Hola, Mundo!'
 ```
 
 Fallback for an unsupported locale:
 
-```js
+```ts
 greet('Shurik', 'fr');       // 'Hello, Shurik!'
 greet('Shurik', 'unknown');  // 'Hello, Shurik!'
 ```
@@ -62,5 +62,5 @@ greet('Shurik', 'unknown');  // 'Hello, Shurik!'
 ## Tests
 
 ```sh
-node --test
+node --test *.test.ts
 ```

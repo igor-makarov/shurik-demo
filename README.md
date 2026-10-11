@@ -1,6 +1,6 @@
 # shurik-demo
 
-A small consumer project using [Shurik](https://github.com/igor-makarov/shurik) through a GitHub Action. The application has no dependencies and does not contain Shurik's engine source.
+A small consumer project using [Shurik](https://github.com/igor-makarov/shurik) through a GitHub Action. The TypeScript application has no runtime dependencies and does not contain Shurik's engine source.
 
 One workflow handles start, stop, resume, iterations and recovery. The integration in [.github/workflows/shurik.yml](.github/workflows/shurik.yml) is:
 
@@ -11,6 +11,8 @@ One workflow handles start, stop, resume, iterations and recovery. The integrati
     workflow: shurik.yml
     opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
 ```
+
+Iteration titles use `Shurik <loop-id> / iterate <n>`, with contiguous numbers across stop/resume: `1, 2, 3, 4, 5 → stop → resume → 6, 7, 8`. Internal generations keep older queued runs separate without appearing in the title. A queued run that never claimed ownership does not consume a number; an interrupted run that did claim ownership does.
 
 Each run uses the current `v1` release. Use `@v2` when you choose to adopt a future major version. Shurik's CLI handles the loop and Pi Durable handles native session history.
 
@@ -23,7 +25,7 @@ Each run uses the current `v1` release. Use `@v2` when you choose to adopt a fut
 5. Review task changes on `codex/shurik/greeting-demo`, or in its draft PR when enabled. Shurik does not merge it.
 6. Use **Shurik → stop** with that loop ID. Resume requires a new explicit reasoning level. The recovery job runs in this same workflow after iteration failure; its schedule also checks every 15 minutes if the entire workflow was interrupted.
 
-A model finishing the greeting task ends one iteration; the outer loop continues until its deadline or a stop. No agent loop starts just from cloning or pushing this repository. Demo CI runs `node --test` without model credentials.
+A model finishing the greeting task ends one iteration; the outer loop continues until its deadline or a stop. No agent loop starts just from cloning or pushing this repository. Demo CI type-checks the application and tests, then runs `node --test *.test.ts` without model credentials. All authored code is TypeScript.
 
 ## Verified example
 
@@ -57,7 +59,10 @@ Sessions and diagnostics in a public repository are public. Use public-safe prom
 With Node 24 installed:
 
 ```sh
-node --test
+npm ci --ignore-scripts
+npm run verify
 ```
+
+For tests alone without installing development tools, use `node --test *.test.ts`. TypeScript and Node types are development dependencies only.
 
 See Shurik's [README](https://github.com/igor-makarov/shurik/blob/v1/README.md) and [architecture](https://github.com/igor-makarov/shurik/blob/v1/ARCHITECTURE.md) for CLI commands, configuration, and persistence details.
