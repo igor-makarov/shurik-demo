@@ -15,7 +15,12 @@
   "workflow": "shurik.yml",
   "layoutVersion": 1,
   "prompt": "PROMPT.md",
-  "owner": null,
+  "owner": {
+    "runId": "38138647230",
+    "generation": 1,
+    "iteration": 4,
+    "claimedAt": "2026-10-11T12:16:49.861Z"
+  },
   "deadline": "2026-10-11T12:22:21Z",
   "seconds": 120,
   "model": "space-bunny-free",
