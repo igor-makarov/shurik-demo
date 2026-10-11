@@ -2,16 +2,17 @@
 
 A small consumer project using [Shurik](https://github.com/igor-makarov/shurik) through a GitHub Action. The TypeScript application has no runtime dependencies and does not contain Shurik's engine source.
 
-Pi Durable uses Pi AI for model providers and authentication, including OpenAI, Anthropic, and others. This demo uses DeepSeek through Shurik's currently bundled OpenCode Go adapter. Shurik's [provider guide](https://github.com/igor-makarov/shurik/blob/v1/README.md#providers-and-authentication) explains the upstream capabilities and the current action's supported adapter.
+Shurik selects providers and models through Pi AI, which handles authentication automatically. The workflow supports OpenAI, Anthropic, and the demo's default DeepSeek model through OpenCode Go. See Shurik's [provider guide](https://github.com/igor-makarov/shurik/blob/v1/README.md#providers-and-authentication) for provider IDs and native authentication variables.
 
 One workflow handles start, stop, resume, iterations and recovery. The iteration job in [.github/workflows/shurik.yml](.github/workflows/shurik.yml) invokes Shurik with the model credential:
 
 ```yaml
 - uses: igor-makarov/shurik@v1
+  env:
+    OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
   with:
     command: iterate
     inputs: ${{ toJSON(inputs) }}
-    opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
 ```
 
 Control and recovery actions use the repository token and do not need a model credential.
@@ -22,14 +23,16 @@ Each run uses the current `v1` release. Use `@v2` when you choose to adopt a fut
 
 ## Try it
 
-1. Add the repository Actions secret `OPENCODE_API_KEY`.
+1. For the default demo, add the repository Actions secret `OPENCODE_API_KEY`. To use OpenAI or Anthropic, add `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` instead; the iteration job already exposes these as native environment variables. Other providers use their Pi AI authentication variables in that job's `env`.
 2. Optionally enable **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** for draft PRs. The `create_pr` workflow input defaults to `auto`, creating a PR when allowed and continuing on the task branch otherwise. Choose `false` to skip PR creation, or `true` to enable it explicitly. The action input is `create-pr`; the CLI flag is `--create-pr`.
 3. Read or change [PROMPT.md](PROMPT.md). It asks Shurik to add Spanish greetings with tests and API documentation.
-4. In **Actions → Shurik → Run workflow**, use `main`, command `start`, a unique loop ID such as `greeting-demo`, and an explicit reasoning level such as `high`. Leave model and seconds blank to use the workflow's action inputs, which select `deepseek-v4.1-flash` and a two-minute iteration time limit with checkpoints every 60 seconds. This is a paid model; the original `space-bunny-free` model was unavailable during verification. Supply a deadline a few minutes in the future to bound the demo. The time limit and deadline are not spending caps.
+4. In **Actions → Shurik → Run workflow**, use `main`, command `start`, a unique loop ID such as `greeting-demo`, and an explicit reasoning level such as `high`. Leave provider, model, and seconds blank to use `opencode-go` / `deepseek-v4.1-flash` and a two-minute iteration time limit with checkpoints every 60 seconds. Alternatively, select `provider: openai` with `model: gpt-6-sol`, or `provider: anthropic` with `model: claude-haiku-4-5`. These are paid models. Supply a deadline a few minutes in the future to bound the demo. The time limit and deadline are not spending caps.
 5. Review task changes on `codex/shurik/greeting-demo`, or in its draft PR when enabled. Shurik does not merge it.
 6. Use **Shurik → stop** with that loop ID. Resume requires a new explicit reasoning level. The recovery job runs in this same workflow after iteration failure; its schedule also checks every 15 minutes if the entire workflow was interrupted.
 
 A model finishing the greeting task ends one iteration; the outer loop continues until its deadline or a stop. No agent loop starts just from cloning or pushing this repository. Demo CI type-checks the application and tests, then runs `node --test *.test.ts` without model credentials. All authored code is TypeScript.
+
+Start saves provider/model settings on the control branch. Resume keeps them when blank; switching provider requires an explicit model and a new reasoning level. Authentication stays in the runner environment and is resolved by Pi AI, without a Shurik API-key input or credential file in the project.
 
 ## Verified example
 
