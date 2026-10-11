@@ -11,11 +11,12 @@
   },
   {
     "id": "1-2",
-    "outcome": "running",
+    "outcome": "agent_failure",
     "runId": "38138583181",
     "minEntryId": 14,
-    "maxEntryId": 14,
+    "maxEntryId": 20,
     "checkpointAt": "2026-10-11T12:15:59.783Z",
-    "transcript": "checkpoint"
+    "error": "{\"conversationId\":1,\"requestId\":\"greeting-20261011-120943-retry:1-2\",\"type\":\"input\",\"status\":\"unanswered\",\"entry\":16,\"id\":17,\"reason\":\"model_error\",\"detail\":\"400: {\\\"type\\\":\\\"server_error\\\",\\\"message\\\":\\\"Upstream request failed: Model is unavailable.\\\"}\"}",
+    "transcript": "complete"
   }
 ]
