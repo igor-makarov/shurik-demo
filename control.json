@@ -15,7 +15,12 @@
   "workflow": "shurik.yml",
   "layoutVersion": 1,
   "prompt": "PROMPT.md",
-  "owner": null,
+  "owner": {
+    "runId": "38138996521",
+    "generation": 2,
+    "iteration": 6,
+    "claimedAt": "2026-10-11T12:22:29.291Z"
+  },
   "deadline": "2026-10-11T12:26:34Z",
   "seconds": 120,
   "model": "deepseek-v4.1-flash",
