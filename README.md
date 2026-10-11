@@ -2,15 +2,19 @@
 
 A small consumer project using [Shurik](https://github.com/igor-makarov/shurik) through a GitHub Action. The TypeScript application has no runtime dependencies and does not contain Shurik's engine source.
 
-One workflow handles start, stop, resume, iterations and recovery. The integration in [.github/workflows/shurik.yml](.github/workflows/shurik.yml) is:
+Pi Durable uses Pi AI for model providers and authentication, including OpenAI, Anthropic, and others. This demo uses DeepSeek through Shurik's currently bundled OpenCode Go adapter. Shurik's [provider guide](https://github.com/igor-makarov/shurik/blob/v1/README.md#providers-and-authentication) explains the upstream capabilities and the current action's supported adapter.
+
+One workflow handles start, stop, resume, iterations and recovery. The iteration job in [.github/workflows/shurik.yml](.github/workflows/shurik.yml) invokes Shurik with the model credential:
 
 ```yaml
 - uses: igor-makarov/shurik@v1
   with:
+    command: iterate
     inputs: ${{ toJSON(inputs) }}
-    workflow: shurik.yml
     opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
 ```
+
+Control and recovery actions use the repository token and do not need a model credential.
 
 Iteration titles use `Shurik <loop-id> / <n>`, with contiguous numbers across stop/resume: `1, 2, 3, 4, 5 → stop → resume → 6, 7, 8`. Internal generations keep older queued runs separate without appearing in the title. A queued run that never claimed ownership does not consume a number; an interrupted run that did claim ownership does.
 
