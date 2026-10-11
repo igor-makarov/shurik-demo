@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "id": "v118-20261011-2036",
+  "branch": "codex/shurik/v118-20261011-2036",
+  "defaultBranch": "main",
+  "supervisor": "a0e6b888febe6a43a171eaf1aa709ab30591c281",
+  "status": "running",
+  "generation": 1,
+  "next": 1,
+  "model": "deepseek-v4.1-flash",
+  "reasoning": "high",
+  "source": "d145dcf15bea16c794bfd13d5c549f934fddba28",
+  "sourceRef": null,
+  "provider": "opencode-go"
+}

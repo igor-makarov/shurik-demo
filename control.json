@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "stateStorage": "control",
+  "id": "v118-20261011-2036",
+  "branch": "codex/shurik/v118-20261011-2036",
+  "defaultBranch": "main",
+  "supervisor": "a0e6b888febe6a43a171eaf1aa709ab30591c281",
+  "status": "running",
+  "generation": 1,
+  "next": 1,
+  "engine": {
+    "repository": "igor-makarov/shurik",
+    "ref": "v1"
+  },
+  "workflow": "shurik.yml",
+  "layoutVersion": 1,
+  "prompt": "PROMPT.md",
+  "checkpointSeconds": 60,
+  "checkpointPaths": [],
+  "owner": null,
+  "deadline": "2026-10-11T20:46:00Z",
+  "seconds": 120,
+  "provider": "opencode-go",
+  "model": "deepseek-v4.1-flash",
+  "reasoning": "high",
+  "createPr": false,
+  "source": "d145dcf15bea16c794bfd13d5c549f934fddba28",
+  "sourceRef": null,
+  "createdAt": "2026-10-11T20:37:22.066Z",
+  "lastDispatchAt": null,
+  "checkpoint": {
+    "workCommit": "d145dcf15bea16c794bfd13d5c549f934fddba28",
+    "generation": 1,
+    "sequence": "initialize",
+    "runId": null,
+    "at": "2026-10-11T20:37:22.103Z"
+  }
+}
