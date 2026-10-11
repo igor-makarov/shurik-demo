@@ -12,7 +12,7 @@ One workflow handles start, stop, resume, iterations and recovery. The integrati
     opencode-api-key: ${{ secrets.OPENCODE_API_KEY }}
 ```
 
-Iteration titles use `Shurik <loop-id> / iterate <n>`, with contiguous numbers across stop/resume: `1, 2, 3, 4, 5 → stop → resume → 6, 7, 8`. Internal generations keep older queued runs separate without appearing in the title. A queued run that never claimed ownership does not consume a number; an interrupted run that did claim ownership does.
+Iteration titles use `Shurik <loop-id> / <n>`, with contiguous numbers across stop/resume: `1, 2, 3, 4, 5 → stop → resume → 6, 7, 8`. Internal generations keep older queued runs separate without appearing in the title. A queued run that never claimed ownership does not consume a number; an interrupted run that did claim ownership does.
 
 Each run uses the current `v1` release. Use `@v2` when you choose to adopt a future major version. Shurik's CLI handles the loop and Pi Durable handles native session history.
 
