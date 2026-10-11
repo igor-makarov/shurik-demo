@@ -5,7 +5,7 @@
   "branch": "codex/shurik/greeting-20261011-120943-retry",
   "defaultBranch": "main",
   "supervisor": "ff7488806b221b3c8af26e6384d514cbdd03ebe6",
-  "status": "running",
+  "status": "stopped",
   "generation": 1,
   "next": 5,
   "engine": {
@@ -32,5 +32,6 @@
     "at": "2026-10-11T12:17:03.433Z"
   },
   "pr": null,
-  "lastRunId": "38138647230"
+  "lastRunId": "38138647230",
+  "stoppedAt": "2026-10-11T12:17:14.779Z"
 }
