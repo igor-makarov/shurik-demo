@@ -7,7 +7,7 @@
   "supervisor": "ff7488806b221b3c8af26e6384d514cbdd03ebe6",
   "status": "running",
   "generation": 2,
-  "next": 5,
+  "next": 6,
   "engine": {
     "repository": "igor-makarov/shurik",
     "ref": "v1"
@@ -15,12 +15,7 @@
   "workflow": "shurik.yml",
   "layoutVersion": 1,
   "prompt": "PROMPT.md",
-  "owner": {
-    "runId": "38138912933",
-    "generation": 2,
-    "iteration": 5,
-    "claimedAt": "2026-10-11T12:21:07.963Z"
-  },
+  "owner": null,
   "deadline": "2026-10-11T12:26:34Z",
   "seconds": 120,
   "model": "deepseek-v4.1-flash",
@@ -28,7 +23,7 @@
   "source": "504af8a38716ca8d101df666a79ac03ba864a4f9",
   "sourceRef": null,
   "createdAt": "2026-10-11T12:15:02.848Z",
-  "lastDispatchAt": "2026-10-11T12:20:51.434Z",
+  "lastDispatchAt": null,
   "checkpoint": {
     "workCommit": "e1df2c834f4e4e39c940921df29d3c1cc1acfa1e",
     "generation": 2,
@@ -37,9 +32,14 @@
     "at": "2026-10-11T12:21:47.130Z"
   },
   "pr": null,
-  "lastRunId": null,
+  "lastRunId": "38138912933",
   "stoppedAt": "2026-10-11T12:17:14.779Z",
   "failureTrail": [
     "38138912933-1"
-  ]
+  ],
+  "recovery": {
+    "runId": "38138912933",
+    "conclusion": "failure",
+    "at": "2026-10-11T12:22:10.413Z"
+  }
 }
