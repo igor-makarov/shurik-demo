@@ -5,7 +5,7 @@
   "branch": "codex/shurik/v118-20261011-2036",
   "defaultBranch": "main",
   "supervisor": "a0e6b888febe6a43a171eaf1aa709ab30591c281",
-  "status": "running",
+  "status": "stopped",
   "generation": 1,
   "next": 4,
   "engine": {
@@ -58,5 +58,6 @@
       "iteration": 4
     }
   ],
-  "lastRunId": "38173188755"
+  "lastRunId": "38173188755",
+  "stoppedAt": "2026-10-11T20:41:22.666Z"
 }
