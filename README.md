@@ -19,7 +19,7 @@ Each run uses the current `v1` release. Use `@v2` when you choose to adopt a fut
 1. Add the repository Actions secret `OPENCODE_API_KEY`.
 2. Optionally enable **Settings → Actions → General → Allow GitHub Actions to create and approve pull requests** for draft PRs. The `create_pr` workflow input defaults to `auto`, creating a PR when allowed and continuing on the task branch otherwise. Choose `false` to skip PR creation, or `true` to enable it explicitly. The action input is `create-pr`; the CLI flag is `--create-pr`.
 3. Read or change [PROMPT.md](PROMPT.md). It asks Shurik to add Spanish greetings with tests and API documentation.
-4. In **Actions → Shurik → Run workflow**, use `main`, command `start`, a unique loop ID such as `greeting-demo`, and an explicit reasoning level such as `high`. Leave model and seconds blank to use [.shurik/config.json](.shurik/config.json), which selects `deepseek-v4.1-flash` and a two-minute iteration time limit. This is a paid model; the original `space-bunny-free` model was unavailable during verification. Supply a deadline a few minutes in the future to bound the demo. The time limit and deadline are not spending caps.
+4. In **Actions → Shurik → Run workflow**, use `main`, command `start`, a unique loop ID such as `greeting-demo`, and an explicit reasoning level such as `high`. Leave model and seconds blank to use the workflow's action inputs, which select `deepseek-v4.1-flash` and a two-minute iteration time limit with checkpoints every 60 seconds. This is a paid model; the original `space-bunny-free` model was unavailable during verification. Supply a deadline a few minutes in the future to bound the demo. The time limit and deadline are not spending caps.
 5. Review task changes on `codex/shurik/greeting-demo`, or in its draft PR when enabled. Shurik does not merge it.
 6. Use **Shurik → stop** with that loop ID. Resume requires a new explicit reasoning level. The recovery job runs in this same workflow after iteration failure; its schedule also checks every 15 minutes if the entire workflow was interrupted.
 
@@ -43,11 +43,12 @@ All branches and session data belong to this consumer repository:
 | Native Pi Durable journal | `$HOME/.shurik/state/igor-makarov/shurik-demo/<loop-id>/pi-jsonl/` | `state/pi-jsonl/` |
 | Session index | `$HOME/.shurik/state/igor-makarov/shurik-demo/<loop-id>/history-index.json` | `state/history-index.json` |
 | Iteration outcomes | `$HOME/.shurik/state/igor-makarov/shurik-demo/<loop-id>/iterations/` | `state/iterations/` |
-| Diagnostics | `$HOME/.shurik/state/igor-makarov/shurik-demo/<loop-id>/diagnostics/` | `state/diagnostics/` |
-| Authoritative loop control | Supervisor checkout | `control.json` |
-| Actions failure reports | `diagnostics/recovery/` within session directory | `failures/<run-id>-<attempt>.json` |
+| Diagnostics | `$HOME/.shurik/logs/igor-makarov/shurik-demo/<loop-id>/` | `state/diagnostics/` |
+| Emergency snapshot | `$HOME/.shurik/emergency/igor-makarov/shurik-demo/<loop-id>/<run-id>-<attempt>/` | Actions artifact only |
+| Authoritative loop control and configuration | Supervisor checkout | `control.json` |
+| Actions failure reports | `recovery/` within the runtime logs directory | `failures/<run-id>-<attempt>.json` |
 
-The session directory is outside every checkout and cannot enter task commits. `SHURIK_HOME` optionally overrides `$HOME/.shurik`. Each checkpoint atomically pushes task changes and control-branch state, pairing them through `control.json.checkpoint.workCommit`. The next run restores `state/` into the canonical runtime location. The agent can discover older transcripts with `list_sessions`, `search_sessions`, and `read_session`.
+Sessions, diagnostics, and fallback snapshots use separate `state/`, `logs/`, and `emergency/` directories under `$HOME/.shurik`, outside every checkout. No `.shurik/` config file, `.shurik-emergency/` ignore, or blanket `*.log` ignore is required. Start saves its action input settings in `control.json`; iterations reuse that record. `SHURIK_HOME` optionally overrides `$HOME/.shurik`. Each checkpoint atomically pushes task changes and control-branch state, pairing them through `control.json.checkpoint.workCommit`. The next run restores sessions into the runtime `state/` directory and saved `state/diagnostics/` into the runtime `logs/` directory. The agent can discover older transcripts with `list_sessions`, `search_sessions`, and `read_session`.
 
 Sessions and diagnostics in a public repository are public. Use public-safe prompts and keep credentials in Actions secrets. The agent runs on the job runner with its token and model key; execute only trusted tasks and source.
 

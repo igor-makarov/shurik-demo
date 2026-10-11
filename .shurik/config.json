@@ -1,7 +1,0 @@
-{
-  "version": 1,
-  "model": "deepseek-v4.1-flash",
-  "iterationSeconds": 120,
-  "checkpointSeconds": 60,
-  "prompt": "PROMPT.md"
-}
