@@ -1,5 +1,5 @@
 name: Shurik
-run-name: ${{ github.event_name == 'push' && 'Shurik v118-20261011-2036 / start' || (github.event_name == 'schedule' && 'Shurik recovery' || (inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id, inputs.command))) }}
+run-name: ${{ github.event_name == 'push' && 'Shurik v118-20261011-2036 / stop' || (github.event_name == 'schedule' && 'Shurik recovery' || (inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id, inputs.command))) }}
 on:
   push:
     branches: [main]
@@ -69,7 +69,7 @@ jobs:
       - id: shurik
         uses: igor-makarov/shurik@v1
         with:
-          command: ${{ github.event_name == 'push' && 'start' || '' }}
+          command: ${{ github.event_name == 'push' && 'stop' || '' }}
           loop-id: ${{ github.event_name == 'push' && 'v118-20261011-2036' || '' }}
           reasoning: ${{ github.event_name == 'push' && 'high' || '' }}
           deadline: ${{ github.event_name == 'push' && '2026-10-11T20:46:00Z' || '' }}
