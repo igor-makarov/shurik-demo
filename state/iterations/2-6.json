@@ -5,13 +5,48 @@
   "generation": 2,
   "iteration": 6,
   "startedAt": "2026-10-11T12:22:31.673Z",
-  "outcome": "running",
+  "outcome": "yielded",
   "source": "e1df2c834f4e4e39c940921df29d3c1cc1acfa1e",
   "runtime": "810eb28cdf35a07f94f9d43f5997e8696872fa42",
   "model": "deepseek-v4.1-flash",
   "reasoning": "high",
   "workCommit": "e1df2c834f4e4e39c940921df29d3c1cc1acfa1e",
   "minEntryId": 86,
-  "maxEntryId": 86,
-  "checkpointAt": "2026-10-11T12:22:38.795Z"
+  "maxEntryId": 136,
+  "checkpointAt": "2026-10-11T12:22:38.795Z",
+  "finishedAt": "2026-10-11T12:23:14.913Z",
+  "usage": {
+    "models": {
+      "opencode-go/space-bunny-free": {
+        "input": 0,
+        "output": 0,
+        "cacheRead": 0,
+        "cacheWrite": 0,
+        "totalTokens": 0,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      },
+      "opencode-go/deepseek-v4.1-flash": {
+        "input": 33373,
+        "output": 8376,
+        "cacheRead": 160128,
+        "cacheWrite": 0,
+        "reasoning": 3771,
+        "totalTokens": 201877,
+        "cost": {
+          "input": 0.0050059499999999995,
+          "output": 0.005025600000000001,
+          "cacheRead": 0.00048038400000000004,
+          "cacheWrite": 0,
+          "total": 0.010511934
+        }
+      }
+    },
+    "tools": {}
+  }
 }
