@@ -51,4 +51,4 @@ With Node 24 installed:
 node --test
 ```
 
-See Shurik's [README](https://github.com/igor-makarov/shurik#readme) and [architecture](https://github.com/igor-makarov/shurik/blob/main/ARCHITECTURE.md) for CLI commands, configuration, and persistence details.
+See Shurik's [README](https://github.com/igor-makarov/shurik/blob/v1/README.md) and [architecture](https://github.com/igor-makarov/shurik/blob/v1/ARCHITECTURE.md) for CLI commands, configuration, and persistence details.
