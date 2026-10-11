@@ -35,5 +35,12 @@
     "runId": null,
     "at": "2026-10-11T20:37:22.103Z"
   },
-  "pr": null
+  "pr": null,
+  "dispatchedRuns": [
+    {
+      "runId": "38172986386",
+      "generation": 1,
+      "iteration": 1
+    }
+  ]
 }
