@@ -23,12 +23,13 @@
   "source": "504af8a38716ca8d101df666a79ac03ba864a4f9",
   "sourceRef": null,
   "createdAt": "2026-10-11T12:15:02.848Z",
-  "lastDispatchAt": null,
+  "lastDispatchAt": "2026-10-11T12:15:04.854Z",
   "checkpoint": {
     "workCommit": "504af8a38716ca8d101df666a79ac03ba864a4f9",
     "generation": 1,
     "sequence": "initialize",
     "runId": null,
     "at": "2026-10-11T12:15:02.876Z"
-  }
+  },
+  "pr": null
 }
