@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "model": "space-bunny-free",
+  "iterationSeconds": 120,
+  "checkpointSeconds": 60,
+  "prompt": "PROMPT.md"
+}
