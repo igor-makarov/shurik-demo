@@ -1,0 +1,11 @@
+{
+  "checkpoint": {
+    "nonce": "1791721358789",
+    "id": "greeting-20261011-120943-retry:2-6",
+    "minEntryId": 86,
+    "maxEntryId": 86,
+    "at": "2026-10-11T12:22:38.795Z",
+    "phase": "started"
+  },
+  "log": ""
+}
