@@ -17,7 +17,12 @@
   "prompt": "PROMPT.md",
   "checkpointSeconds": 60,
   "checkpointPaths": [],
-  "owner": null,
+  "owner": {
+    "runId": "38173188755",
+    "generation": 1,
+    "iteration": 3,
+    "claimedAt": "2026-10-11T20:40:43.418Z"
+  },
   "deadline": "2026-10-11T20:46:00Z",
   "seconds": 120,
   "provider": "opencode-go",
