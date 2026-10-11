@@ -47,7 +47,7 @@ permissions:
   actions: write
 jobs:
   control:
-    if: ((github.event_name == 'workflow_dispatch' && inputs.command != 'iterate') || (github.event_name == 'push' && github.event.head_commit.message == 'Start bounded Shurik demo greeting-20261011-120943')) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    if: ((github.event_name == 'workflow_dispatch' && inputs.command != 'iterate') || (github.event_name == 'push' && github.event.head_commit.message == 'Start bounded Shurik demo greeting-20261011-120943-retry')) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     concurrency:
@@ -60,7 +60,7 @@ jobs:
           fetch-depth: 0
       - uses: igor-makarov/shurik@v1
         with:
-          inputs: ${{ github.event_name == 'push' && '{"command":"start","loop_id":"greeting-20261011-120943","reasoning":"high","seconds":"120","deadline":"2026-10-11T12:19:43Z","source_ref":"4aeaafd8a46adcd2a9c847f6f283b3831b6185f7"}' || toJSON(inputs) }}
+          inputs: ${{ github.event_name == 'push' && '{"command":"start","loop_id":"greeting-20261011-120943-retry","reasoning":"high","seconds":"120","deadline":"2026-10-11T12:22:21Z"}' || toJSON(inputs) }}
           workflow: shurik.yml
   iteration:
     if: github.event_name == 'workflow_dispatch' && inputs.command == 'iterate' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
