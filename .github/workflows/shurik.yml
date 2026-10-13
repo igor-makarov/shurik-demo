@@ -32,8 +32,11 @@ on:
       source_ref:
         description: Source for a new task branch; existing branches use their current tip
         type: string
-      seconds:
-        description: Optional iteration budget for start (10–1800 seconds)
+      work-seconds:
+        description: Work budget per iteration for start/resume (10–1800 seconds)
+        type: string
+      wait-seconds:
+        description: Idle seconds after each iteration; 0 continues immediately, blank resume retains it
         type: string
       deadline:
         description: Optional absolute UTC deadline for start/resume
@@ -71,7 +74,8 @@ jobs:
           checkpoint-seconds: 60
           provider: ${{ inputs.provider }}
           model: ${{ inputs.model || (inputs.command == 'start' && (!inputs.provider || inputs.provider == 'opencode-go') && 'deepseek-v4.1-flash' || '') }}
-          seconds: ${{ inputs.seconds || (inputs.command == 'start' && '120' || '') }}
+          work-seconds: ${{ inputs['work-seconds'] || (inputs.command == 'start' && '120' || '') }}
+          wait-seconds: ${{ inputs['wait-seconds'] }}
           prompt: PROMPT.md
           checkpoint-paths: '[]'
       - name: Preserve emergency snapshot after publication failure
