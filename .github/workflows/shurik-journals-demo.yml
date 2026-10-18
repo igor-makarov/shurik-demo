@@ -1,5 +1,5 @@
 name: Shurik
-run-name: ${{ inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id || 'session-journals-demo', inputs.command || 'start') }}
+run-name: ${{ inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id || 'session-journals-demo', inputs.command || 'resume') }}
 on:
   push:
     branches: [main]
@@ -80,7 +80,7 @@ jobs:
       - id: shurik
         uses: igor-makarov/shurik@session-journals
         with:
-          command: ${{ github.event_name == 'push' && 'start' || inputs.command }}
+          command: ${{ github.event_name == 'push' && 'resume' || inputs.command }}
           loop-id: ${{ inputs.loop_id || 'session-journals-demo' }}
           reasoning: ${{ inputs.reasoning || (github.event_name == 'push' && 'high' || '') }}
           deadline: ${{ inputs.deadline || steps.demo.outputs.deadline }}
@@ -88,7 +88,7 @@ jobs:
           inputs: ${{ toJSON(inputs) }}
           workflow: shurik-journals-demo.yml
           checkpoint-seconds: 60
-          provider: ${{ inputs.provider || (github.event_name == 'push' && 'opencode-go' || '') }}
+          provider: ${{ inputs.provider || (github.event_name == 'push' && 'opencode' || '') }}
           model: ${{ inputs.model || (github.event_name == 'push' && 'step-5-preview-free' || '') }}
           work-seconds: ${{ inputs['work-seconds'] || (github.event_name == 'push' && '900' || '') }}
           wait-seconds: ${{ inputs['wait-seconds'] || (github.event_name == 'push' && '0' || '') }}
