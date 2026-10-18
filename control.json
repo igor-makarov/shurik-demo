@@ -10,7 +10,7 @@
   "next": 25,
   "engine": {
     "repository": "igor-makarov/shurik",
-    "ref": "session-journals"
+    "ref": "v1.3.0"
   },
   "workflow": "shurik.yml",
   "layoutVersion": 1,
