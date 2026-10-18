@@ -172,12 +172,12 @@
   },
   {
     "id": "4-17",
-    "outcome": "running",
+    "outcome": "yielded",
     "runId": "39112190575",
     "journalId": "4-17",
     "minEntryId": 7,
-    "maxEntryId": 7,
+    "maxEntryId": 89,
     "checkpointAt": "2026-10-18T08:38:22.155Z",
-    "transcript": "checkpoint"
+    "transcript": "complete"
   }
 ]
