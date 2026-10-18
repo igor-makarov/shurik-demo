@@ -17,7 +17,12 @@
   "prompt": "PROMPT.md",
   "checkpointSeconds": 60,
   "checkpointPaths": [],
-  "owner": null,
+  "owner": {
+    "runId": "39112477971",
+    "generation": 4,
+    "iteration": 20,
+    "claimedAt": "2026-10-18T08:42:40.838Z"
+  },
   "deadline": "2026-10-18T08:59:53Z",
   "seconds": 900,
   "waitSeconds": 0,
