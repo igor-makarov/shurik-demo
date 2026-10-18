@@ -12,5 +12,8 @@
   "provider": "opencode-go",
   "model": "beam-free",
   "reasoning": "high",
-  "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab"
+  "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab",
+  "minEntryId": 7,
+  "maxEntryId": 7,
+  "checkpointAt": "2026-10-18T09:37:52.919Z"
 }
