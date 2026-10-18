@@ -1,0 +1,11 @@
+{
+  "checkpoint": {
+    "nonce": "1792304060522",
+    "id": "session-journals-demo:1-2",
+    "minEntryId": 7,
+    "maxEntryId": 7,
+    "at": "2026-10-18T06:14:20.527Z",
+    "phase": "started"
+  },
+  "log": ""
+}
