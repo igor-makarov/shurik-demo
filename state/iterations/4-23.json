@@ -5,7 +5,7 @@
   "generation": 4,
   "iteration": 23,
   "startedAt": "2026-10-18T08:47:53.847Z",
-  "outcome": "running",
+  "outcome": "yielded",
   "journalId": "4-23",
   "source": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "runtime": "9fe7c369e509aaeb301ea29ee671e2b8f812bb9b",
@@ -14,6 +14,27 @@
   "reasoning": "high",
   "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "minEntryId": 7,
-  "maxEntryId": 27,
-  "checkpointAt": "2026-10-18T08:50:13.530Z"
+  "maxEntryId": 85,
+  "checkpointAt": "2026-10-18T08:50:13.530Z",
+  "finishedAt": "2026-10-18T08:50:34.043Z",
+  "usage": {
+    "models": {
+      "opencode-go/beam-free": {
+        "input": 39894,
+        "output": 3056,
+        "cacheRead": 185088,
+        "cacheWrite": 0,
+        "reasoning": 2341,
+        "totalTokens": 228038,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    },
+    "tools": {}
+  }
 }
