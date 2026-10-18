@@ -31,5 +31,15 @@
     "checkpointAt": "2026-10-18T06:14:57.270Z",
     "error": "{\"conversationId\":1,\"requestId\":\"session-journals-demo:1-3\",\"type\":\"input\",\"status\":\"unanswered\",\"entry\":9,\"id\":10,\"reason\":\"model_error\",\"detail\":\"400: {\\\"type\\\":\\\"server_error\\\",\\\"message\\\":\\\"Upstream request failed: Model is unavailable.\\\"}\"}",
     "transcript": "complete"
+  },
+  {
+    "id": "1-4",
+    "outcome": "running",
+    "runId": "39103375053",
+    "journalId": "1-4",
+    "minEntryId": 7,
+    "maxEntryId": 7,
+    "checkpointAt": "2026-10-18T06:15:36.117Z",
+    "transcript": "checkpoint"
   }
 ]
