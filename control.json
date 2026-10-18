@@ -12,7 +12,7 @@
     "repository": "igor-makarov/shurik",
     "ref": "session-journals"
   },
-  "workflow": "shurik-journals-demo.yml",
+  "workflow": "shurik.yml",
   "layoutVersion": 1,
   "prompt": "PROMPT.md",
   "checkpointSeconds": 60,
