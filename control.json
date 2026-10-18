@@ -5,8 +5,8 @@
   "branch": "session-journals-demo",
   "defaultBranch": "main",
   "supervisor": "9fe7c369e509aaeb301ea29ee671e2b8f812bb9b",
-  "status": "stopped",
-  "generation": 2,
+  "status": "running",
+  "generation": 3,
   "next": 10,
   "engine": {
     "repository": "igor-makarov/shurik",
@@ -18,7 +18,7 @@
   "checkpointSeconds": 60,
   "checkpointPaths": [],
   "owner": null,
-  "deadline": "2026-10-18T06:47:33Z",
+  "deadline": "2026-10-18T08:57:05Z",
   "seconds": 900,
   "waitSeconds": 0,
   "nextRunAt": null,
@@ -29,7 +29,7 @@
   "source": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "sourceRef": null,
   "createdAt": "2026-10-18T06:13:24.141Z",
-  "lastDispatchAt": null,
+  "lastDispatchAt": "2026-10-18T08:27:13.728Z",
   "checkpoint": {
     "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab",
     "generation": 2,
@@ -95,6 +95,6 @@
       "iteration": 10
     }
   ],
-  "lastRunId": "39103624239",
+  "lastRunId": null,
   "stoppedAt": "2026-10-18T06:20:07.297410+00:00"
 }
