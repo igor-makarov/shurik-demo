@@ -5,7 +5,7 @@
   "generation": 6,
   "iteration": 44,
   "startedAt": "2026-10-18T09:40:28.469Z",
-  "outcome": "running",
+  "outcome": "timeout",
   "journalId": "6-44",
   "source": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "runtime": "b94aa192b350ac4f58a4098dfa4008ce21becbb2",
@@ -14,6 +14,28 @@
   "reasoning": "high",
   "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "minEntryId": 7,
-  "maxEntryId": 7,
-  "checkpointAt": "2026-10-18T09:40:34.906Z"
+  "maxEntryId": 43,
+  "checkpointAt": "2026-10-18T09:40:34.906Z",
+  "finishedAt": "2026-10-18T09:44:09.247Z",
+  "error": "\"Model opencode-go/beam-free is unlisted; trying the exact ID with provisional metadata. Cost estimates unavailable.\\n\"",
+  "usage": {
+    "models": {
+      "opencode-go/beam-free": {
+        "input": 7723,
+        "output": 409,
+        "cacheRead": 31360,
+        "cacheWrite": 0,
+        "reasoning": 167,
+        "totalTokens": 39492,
+        "cost": {
+          "input": 0,
+          "output": 0,
+          "cacheRead": 0,
+          "cacheWrite": 0,
+          "total": 0
+        }
+      }
+    },
+    "tools": {}
+  }
 }

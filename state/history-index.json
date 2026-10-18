@@ -443,12 +443,13 @@
   },
   {
     "id": "6-44",
-    "outcome": "running",
+    "outcome": "timeout",
     "runId": "39116239152",
     "journalId": "6-44",
     "minEntryId": 7,
-    "maxEntryId": 7,
+    "maxEntryId": 43,
     "checkpointAt": "2026-10-18T09:40:34.906Z",
-    "transcript": "checkpoint"
+    "error": "\"Model opencode-go/beam-free is unlisted; trying the exact ID with provisional metadata. Cost estimates unavailable.\\n\"",
+    "transcript": "complete"
   }
 ]
