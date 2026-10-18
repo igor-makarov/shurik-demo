@@ -1,6 +1,9 @@
 name: Shurik
-run-name: ${{ github.event_name == 'schedule' && 'Shurik recovery' || (inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id, inputs.command)) }}
+run-name: ${{ github.event_name == 'schedule' && 'Shurik recovery' || (inputs.command == 'iterate' && format('Shurik {0} / {1}', inputs.loop_id, inputs.iteration) || format('Shurik {0} / {1}', inputs.loop_id || 'session-journals-demo', inputs.command || 'resume')) }}
 on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/shurik.yml]
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:
@@ -55,27 +58,41 @@ permissions:
   actions: write
 jobs:
   control:
-    if: github.event_name == 'workflow_dispatch' && inputs.command != 'iterate' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    if: (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.command != 'iterate')) && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     concurrency:
-      group: shurik-control-${{ inputs.loop_id }}
+      group: shurik-control-${{ inputs.loop_id || 'session-journals-demo' }}
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Set demo deadline
+        id: demo
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          from datetime import datetime, timedelta, timezone
+          deadline = datetime.now(timezone.utc) + timedelta(minutes=30)
+          print("deadline=" + deadline.isoformat(timespec="seconds").replace("+00:00", "Z"))
+          PY
       - id: shurik
-        uses: igor-makarov/shurik@v1
+        uses: igor-makarov/shurik@session-journals
         with:
+          command: ${{ github.event_name == 'push' && 'resume' || inputs.command }}
+          loop-id: ${{ inputs.loop_id || 'session-journals-demo' }}
+          reasoning: ${{ inputs.reasoning || (github.event_name == 'push' && 'high' || '') }}
+          deadline: ${{ inputs.deadline || steps.demo.outputs.deadline }}
           inputs: ${{ toJSON(inputs) }}
           workflow: shurik.yml
           checkpoint-seconds: 60
-          provider: ${{ inputs.provider }}
-          model: ${{ inputs.model || (inputs.command == 'start' && (!inputs.provider || inputs.provider == 'opencode-go') && 'deepseek-v4.1-flash' || '') }}
-          work-seconds: ${{ inputs['work-seconds'] || (inputs.command == 'start' && '120' || '') }}
-          wait-seconds: ${{ inputs['wait-seconds'] }}
+          provider: ${{ inputs.provider || (github.event_name == 'push' && 'opencode-go' || '') }}
+          model: ${{ inputs.model || (github.event_name == 'push' && 'step-5-preview-free' || '') || (inputs.command == 'start' && (!inputs.provider || inputs.provider == 'opencode-go') && 'deepseek-v4.1-flash' || '') }}
+          work-seconds: ${{ inputs['work-seconds'] || (github.event_name == 'push' && '900' || '') || (inputs.command == 'start' && '120' || '') }}
+          wait-seconds: ${{ inputs['wait-seconds'] || (github.event_name == 'push' && '0' || '') }}
           prompt: PROMPT.md
           checkpoint-paths: '[]'
       - name: Preserve emergency snapshot after publication failure
@@ -100,7 +117,7 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
       - id: shurik
-        uses: igor-makarov/shurik@v1
+        uses: igor-makarov/shurik@session-journals
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -130,7 +147,7 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: igor-makarov/shurik@v1
+      - uses: igor-makarov/shurik@session-journals
         env:
           SHURIK_ITERATION_RESULT: ${{ needs.iteration.result }}
         with:
