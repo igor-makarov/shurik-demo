@@ -10,7 +10,7 @@
   "next": 26,
   "engine": {
     "repository": "igor-makarov/shurik",
-    "ref": "v1.3.0"
+    "ref": "v1.3.1"
   },
   "workflow": "shurik.yml",
   "layoutVersion": 1,
