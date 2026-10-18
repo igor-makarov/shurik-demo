@@ -111,12 +111,13 @@
   },
   {
     "id": "3-11",
-    "outcome": "running",
+    "outcome": "agent_failure",
     "runId": "39111527340",
     "journalId": "3-11",
     "minEntryId": 7,
-    "maxEntryId": 7,
+    "maxEntryId": 13,
     "checkpointAt": "2026-10-18T08:28:08.158Z",
-    "transcript": "checkpoint"
+    "error": "{\"conversationId\":1,\"requestId\":\"session-journals-demo:3-11\",\"type\":\"input\",\"status\":\"unanswered\",\"entry\":9,\"id\":10,\"reason\":\"model_error\",\"detail\":\"400: {\\\"type\\\":\\\"server_error\\\",\\\"message\\\":\\\"Upstream request failed: Model is unavailable.\\\"}\"}",
+    "transcript": "complete"
   }
 ]
