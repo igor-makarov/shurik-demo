@@ -1,1 +1,1 @@
-{"format":1,"type":"record","seq":60,"ordinal":0,"payload":{"type":"document","id":2,"content":{"version":1,"kind":"base","value":{"run":{"taskId":28,"inputs":[10]},"tools":[{"callId":"call-d0738f95-466d-477b-8871-1448164e18d1","name":"bash","taskId":30,"status":"done","entry":31}]}}}}
+{"format":1,"type":"record","seq":270,"ordinal":0,"payload":{"type":"document","id":2,"content":{"version":1,"kind":"base","value":{}}}}
