@@ -1,11 +1,6 @@
 {
-  "checkpoint": {
-    "nonce": "1792313234982",
-    "id": "session-journals-demo:4-22",
-    "minEntryId": 7,
-    "maxEntryId": 35,
-    "at": "2026-10-18T08:47:14.987Z",
-    "phase": "tools"
-  },
-  "log": "Model opencode-go/beam-free is unlisted; trying the exact ID with provisional metadata. Cost estimates unavailable.\n"
+  "outcome": "yielded",
+  "code": 0,
+  "log": "Model opencode-go/beam-free is unlisted; trying the exact ID with provisional metadata. Cost estimates unavailable.\n",
+  "checkpointAt": "2026-10-18T08:47:14.987Z"
 }
