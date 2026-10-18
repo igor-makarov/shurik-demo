@@ -5,7 +5,7 @@
   "branch": "session-journals-demo",
   "defaultBranch": "main",
   "supervisor": "9fe7c369e509aaeb301ea29ee671e2b8f812bb9b",
-  "status": "running",
+  "status": "stopped",
   "generation": 1,
   "next": 6,
   "engine": {
@@ -29,7 +29,7 @@
   "source": "8633e135a3e494438c5a6593444f28d63febf5ab",
   "sourceRef": null,
   "createdAt": "2026-10-18T06:13:24.141Z",
-  "lastDispatchAt": "2026-10-18T06:16:20.970Z",
+  "lastDispatchAt": null,
   "checkpoint": {
     "workCommit": "8633e135a3e494438c5a6593444f28d63febf5ab",
     "generation": 1,
@@ -70,5 +70,6 @@
       "iteration": 6
     }
   ],
-  "lastRunId": "39103417203"
+  "lastRunId": "39103417203",
+  "stoppedAt": "2026-10-18T06:16:25.977Z"
 }
