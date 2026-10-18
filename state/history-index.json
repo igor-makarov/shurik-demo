@@ -283,12 +283,12 @@
   },
   {
     "id": "6-28",
-    "outcome": "running",
+    "outcome": "yielded",
     "runId": "39114648869",
     "journalId": "6-28",
     "minEntryId": 7,
-    "maxEntryId": 7,
+    "maxEntryId": 75,
     "checkpointAt": "2026-10-18T09:16:23.332Z",
-    "transcript": "checkpoint"
+    "transcript": "complete"
   }
 ]
