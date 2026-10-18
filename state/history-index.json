@@ -250,5 +250,15 @@
     "checkpointAt": "2026-10-18T08:54:52.635Z",
     "error": "\"Model opencode-go/beam-free is unlisted; trying the exact ID with provisional metadata. Cost estimates unavailable.\\n\"",
     "transcript": "complete"
+  },
+  {
+    "id": "5-25",
+    "outcome": "running",
+    "runId": "39113730448",
+    "journalId": "5-25",
+    "minEntryId": 7,
+    "maxEntryId": 7,
+    "checkpointAt": "2026-10-18T09:02:15.916Z",
+    "transcript": "checkpoint"
   }
 ]
