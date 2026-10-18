@@ -290,5 +290,15 @@
     "maxEntryId": 75,
     "checkpointAt": "2026-10-18T09:16:23.332Z",
     "transcript": "complete"
+  },
+  {
+    "id": "6-29",
+    "outcome": "running",
+    "runId": "39114706570",
+    "journalId": "6-29",
+    "minEntryId": 7,
+    "maxEntryId": 7,
+    "checkpointAt": "2026-10-18T09:17:13.521Z",
+    "transcript": "checkpoint"
   }
 ]
